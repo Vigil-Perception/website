@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Dev tools
+serve.mjs
+screenshot.mjs
+screenshot-section.mjs
+package.json
+package-lock.json
+
+# Internal assets & working files
+brand_assets/
+temporary screenshots/
+CLAUDE.md
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
