@@ -8,6 +8,10 @@ screenshot-section.mjs
 package.json
 package-lock.json
 
+# Source files (minified versions are committed)
+style.css
+app.js
+
 # Internal assets & working files
 brand_assets/
 temporary screenshots/
