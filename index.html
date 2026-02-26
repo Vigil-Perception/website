@@ -43,7 +43,7 @@
     <li><a href="#approach">Approach</a></li>
     <li><a href="#standards">Standards</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Get in Touch</a>
+  <button type="button" class="nav-cta" data-open-contact>Get in Touch</button>
   <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
     <span></span><span></span><span></span>
   </button>
@@ -65,7 +65,7 @@
             Our Capabilities
             <svg class="btn-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </a>
-          <a href="#contact" class="btn btn-ghost">Contact Us</a>
+          <button type="button" class="btn btn-ghost" data-open-contact>Contact Us</button>
         </div>
       </div>
       <div class="hero-logo">
@@ -278,14 +278,63 @@
       <h2>Interested in what we're building?</h2>
       <p>We're actively developing and testing our perception systems. Whether you're a potential partner, end user, or research collaborator, we'd like to hear from you.</p>
       <div class="cta-actions">
-        <a href="mailto:kevinf@vigil-perception.co.uk" class="btn btn-primary">
+        <button type="button" class="btn btn-primary" data-open-contact>
           Contact Us
           <svg class="btn-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
+        </button>
       </div>
     </div>
   </div>
 </section>
+<div class="contact-modal-overlay" id="contactModal" aria-hidden="true" role="dialog" aria-labelledby="contactModalTitle">
+  <div class="contact-modal">
+    <button class="contact-modal-close" id="contactModalClose" aria-label="Close contact form">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M15 5L5 15M5 5l10 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+    <div class="contact-modal-header">
+      <p class="label">Get in Touch</p>
+      <h2 id="contactModalTitle">Let's start a conversation</h2>
+      <p>Tell us about your requirements and we'll get back to you promptly.</p>
+    </div>
+    <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="1cd9c854-3497-4340-b4b4-7809d68dd51d">
+      <input type="hidden" name="subject" value="New enquiry from vigil-perception.co.uk">
+      <input type="hidden" name="from_name" value="Vigil Perception Website">
+      <input type="checkbox" name="botcheck" class="hidden" style="display:none">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="contactName">Name <span class="required">*</span></label>
+          <input type="text" id="contactName" name="name" required autocomplete="name" placeholder="Your full name">
+        </div>
+        <div class="form-group">
+          <label for="contactEmail">Email <span class="required">*</span></label>
+          <input type="email" id="contactEmail" name="email" required autocomplete="email" placeholder="you@organisation.com">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="contactOrg">Organisation</label>
+        <input type="text" id="contactOrg" name="organisation" autocomplete="organization" placeholder="Your company">
+      </div>
+      <div class="form-group">
+        <label for="contactMessage">Message <span class="required">*</span></label>
+        <textarea id="contactMessage" name="message" required rows="4" placeholder="How can we help?"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary contact-submit" id="contactSubmit">
+        <span class="contact-submit-text">Send Message</span>
+        <svg class="contact-submit-arrow btn-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg class="contact-submit-spinner" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="7" stroke="currentColor" stroke-width="2" stroke-dasharray="30 14" stroke-linecap="round"/></svg>
+      </button>
+    </form>
+    <div class="contact-success" id="contactSuccess">
+      <div class="contact-success-icon">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true"><circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="1.5"/><path d="M10 16.5l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h3>Message sent</h3>
+      <p>Thank you for reaching out. We'll be in touch shortly.</p>
+      <button type="button" class="btn btn-ghost" id="contactSuccessClose">Close</button>
+    </div>
+  </div>
+</div>
 <button class="back-to-top" id="backToTop" aria-label="Back to top">
   <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
     <path d="M18 15l-6-6-6 6"/>
